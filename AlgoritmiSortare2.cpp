@@ -76,11 +76,12 @@ void merge(int arr[], int left, int mid, int right)
             arr[k] = R[j];
             j++;
         }
+        k++;
     }
     //Copiem elementele ramase din L[] daca exista
     while (i<n1)
     {
-        arr[k] = L[k];
+        arr[k] = L[i];
         i++;
         k++;
     }
@@ -93,10 +94,6 @@ void merge(int arr[], int left, int mid, int right)
     }
 }
 
-
-
-
-
 //Functia principala pentru sortarea arra=ului folosind Merge Sort
 void mergeSort(int arr[], int left, int right)
 {
@@ -104,22 +101,20 @@ void mergeSort(int arr[], int left, int right)
     {
         //Gasim mijlocul array-ului
         int mid = left + (right - left) / 2;
-
         //Sortam prima si a doua jumatatte
         mergeSort(arr, left, mid);
         mergeSort(arr, mid + 1, right);
-
-
         //Fuzionam jumatatile sortate
-        //merge
+        merge(arr, left, mid, right);
     }
 }
 
 
 int main()
 {
-    int test[5] = { 9,3,5,4,6 };
-    bubbleSort(test, 5);
-    printArray(test, 5);
+    int test[4] = {9,3,5,4 };
+    //bubbleSort(test, 5);
+    mergeSort(test, 0, 3);
+    printArray(test, 4);
 
 }
