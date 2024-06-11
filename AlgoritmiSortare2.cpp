@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+//libraire pentru algoritmi de ex sortare
+#include <algorithm>
+
 //printeze un array de tip int
 void printArray(int my_arr[], int dimens)
 {
@@ -116,5 +119,14 @@ int main()
     //bubbleSort(test, 5);
     mergeSort(test, 0, 3);
     printArray(test, 4);
+
+    std::vector<int> data{ 98,3,105,-2,0,4,29,2,88 };
+    std::sort(data.begin(), data.end());
+    std::cout << "Dupa sortare\n";
+    for (auto it : data)
+    {
+        std::cout << it << std::endl;
+    }
+
 
 }
